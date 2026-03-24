@@ -50,29 +50,48 @@ Inspired by tools like HaloITSM, Zendesk, and Jira Service Management.
 
 ## 🏗 System Architecture
 
+```text
+┌───────────────┐
+│ Client Portal │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│   API Layer   │
+└───────┬───────┘
+        ↓
+┌──────────────────────┐
+│ AI Classification    │
+└───────┬──────────────┘
+        ↓
+┌───────────────┐
+│ Queue System  │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│ Worker Engine │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│   Database    │
+└───────┬───────┘
+        ↓
+┌────────────────────┐
+│ Admin Dashboard    │
+└────────────────────┘
 
-Client Portal
-↓
-API Layer
-↓
-AI Classification
-↓
-Queue System
-↓
-Worker Processing
-↓
-Database
-↓
-Admin Dashboard
 
-
----
-
-
-```markdown
 ## 🚀 How to Run
+
 
 ```bash
 git clone https://github.com/thakursahab2580-lgtm/ai-helpdesk-system.git
 cd ai-helpdesk-system
 python ticket_system.py
+
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](assets/dashboard.png)
+
+### Client Portal
+![Portal](assets/portal.png)
