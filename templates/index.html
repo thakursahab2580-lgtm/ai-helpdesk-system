@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University Support AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 10px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e3c72;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>University Support AI System</h1>
+
+    <div class="container">
+        <form method="POST">
+            <label>Describe your issue:</label>
+            <textarea name="ticket_text" required></textarea>
+            <br>
+            <button type="submit">Submit Ticket</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Classification Result</h3>
+            <p><strong>Category:</strong> {{ result.category }}</p>
+            <p><strong>Priority:</strong> {{ result.priority }}</p>
+            <p><strong>Confidence:</strong> {{ result.confidence }}%</p>
+
+            {% if result.manual_review %}
+            <p style="color: red;"><strong>Status:</strong> Needs Manual Review</p>
+            {% else %}
+            <p style="color: green;"><strong>Status:</strong> Auto-Processed</p>
+            {% endif %}
+
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

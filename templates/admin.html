@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard - UniSupport</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .drift {
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .drift.good { background: #d4edda; color: #155724; }
+        .drift.bad { background: #f8d7da; color: #721c24; }
+
+        table {
+            margin-top: 40px;
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #2a5298;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>UniSupport Admin Dashboard</h1>
+</div>
+
+{% if stats %}
+
+<div class="card">
+    <h3>Total Tickets</h3>
+    <p>{{ stats.total }}</p>
+</div>
+
+<div class="card">
+    <h3>High Priority</h3>
+    <p>{{ stats.high_priority }}</p>
+</div>
+
+<div class="card">
+    <h3>Manual Review</h3>
+    <p>{{ stats.manual_review }}</p>
+</div>
+
+<div class="card">
+    <h3>Avg Confidence</h3>
+    <p>{{ stats.avg_confidence }}%</p>
+</div>
+
+<div class="drift {% if stats.drift_status.drift %}bad{% else %}good{% endif %}">
+    Drift Status: {{ stats.drift_status.status }}
+</div>
+
+<h2>Ticket Details</h2>
+
+<table>
+    <tr>
+        <th>Ticket ID</th>
+        <th>Category</th>
+        <th>Priority</th>
+        <th>Confidence</th>
+        <th>Status</th>
+    </tr>
+
+    {% for ticket in stats.tickets %}
+    <tr>
+        <td>{{ ticket.ticket_id }}</td>
+        <td>{{ ticket.category }}</td>
+        <td>{{ ticket.priority }}</td>
+        <td>{{ ticket.confidence }}%</td>
+        <td>
+            {% if ticket.manual_review %}
+                Needs Review
+            {% else %}
+                Auto
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+<p>No data available yet.</p>
+{% endif %}
+
+</body>
+</html>
