@@ -68,56 +68,11 @@ Admin Dashboard
 
 ---
 
+
+```markdown
 ## 🚀 How to Run
 
 ```bash
 git clone https://github.com/thakursahab2580-lgtm/ai-helpdesk-system.git
 cd ai-helpdesk-system
 python ticket_system.py
-🌐 Access
-Client Portal
-
-http://127.0.0.1:8000/portal
-
-Admin Panel
-
-http://127.0.0.1:8000/admin
-
-🔐 Admin Credentials
-
-ID: admin
-Password: admin123
-
-📸 Screenshots
-
-Make sure you have this folder structure:
-
-assets/
-├── dashboard.png
-├── portal.png
-Dashboard
-
-Client Portal
-
-🔮 Future Improvements
-FastAPI backend
-React frontend (modern SaaS UI)
-PostgreSQL database
-Redis queue (Celery workers)
-Machine Learning model (TF-IDF + Naive Bayes)
-Authentication system (JWT)
-Ticket assignment system
-SLA tracking
-Notification system (Email / Slack)
-💡 Why This Project?
-
-This project demonstrates:
-
-Real-world system architecture
-Event-driven backend design
-AI integration in IT operations
-Scalable helpdesk system design
-👨‍💻 Author
-
-Yuvraj Singh
-MSC in AI | AI + SaaS Builder
