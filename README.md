@@ -1,29 +1,51 @@
-# 🚀 UniSupport AI Helpdesk
+# 🚀 ResolveIT AI — Smart IT Helpdesk Platform
 
-An AI-powered IT Service Management (ITSM) system designed to automate ticket classification, prioritization, and processing.
+🚧 Status: MVP (Startup-Grade Prototype)
+
+An AI-powered IT Service Management (ITSM) platform designed to automate IT support operations inside companies.
+
+Inspired by modern tools like HaloITSM, Zendesk, and Jira Service Management.
+
+---
 
 ## ✨ Features
 
-- AI-based ticket classification
-- Priority prediction
+### 🤖 AI Ticket Classification
+- Automatically detects issue category
+- Predicts priority (Low / Medium / High)
+- Returns confidence score
+
+### ⚙️ Event-Driven Architecture
 - Queue-based processing system
-- Worker-based architecture
-- Admin dashboard with analytics
-- Client portal for ticket submission
+- Background worker execution
+- Scalable system design
+
+### 📊 Admin Dashboard
+- Live ticket monitoring
+- Queue size tracking
+- Worker status
+- Priority distribution charts
+- Real-time updates
+
+### 👨‍💻 Client Portal
+- Submit IT issues
+- Instant AI classification
+- Auto priority detection
+- Success notification UI
+
+---
 
 ## 🧠 Tech Stack
 
-- Python
-- Flask / HTTP Server
-- SQLite
-- Queue system
-- Chart.js
+| Layer        | Technology |
+|-------------|------------|
+| Backend     | Python |
+| Server      | HTTPServer |
+| Database    | SQLite |
+| Queue       | Python Queue |
+| AI Model    | Rule-based (ML-ready) |
+| Frontend    | HTML, CSS, Chart.js |
 
-## 🏗 Architecture
+---
 
-Client → API → AI → Queue → Worker → Database → Dashboard
-
-## 🚀 How to Run
-
-```bash
-python ticket_system.py
+## 🏗 System Architecture
